@@ -1,0 +1,337 @@
+/* Css sıfırlaması yapacagız kenar boşluklarını dolgu boşluklarını */
+* {
+    margin: 0;
+    padding: 0;
+    /* kutu boyutlandırma özelliği koyacagız ki sayfanın diğer alanlarında 
+        padding kısmındaki değerlerin kututnun gerçek genişlipine 
+        eklenmemesi için.
+    */
+    box-sizing: border-box;
+}
+
+/* html ve body için olması gereken özellikleri ekliyoruz */
+html,body {
+    /* yazıtipi için */
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* yazı için satır boşluklarını ayarlıyoruz */
+    line-height: 1.7em;
+}
+
+/* clası ve id si olmadıgı sürece tüm vereceğimiz bağlantıların özelliklerini ayarlıyoruz */
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+/* başlık etiketi ayarlarını yapıyoruz 
+    ilk başta margin ve paddingi sıfırladıgımızdan 
+    başlık etiketleri altında boşluk olmayacak bu yüzden 
+    burada boşlukları ayarlayacagız
+*/
+h1,h2,h3 {
+    padding-bottom: 20px;
+}
+
+/* aynı şekilde paragraf içinde yapıyoruz çünkü başta default özellikleri margin
+ve paddingi sıfırlamıştık
+ */
+p {
+    /* üst ve alt kısmı 10px sağ ve sol kısmı 0px olsun dedik  */
+    margin: 10px 0px;
+}
+
+/* şimdi menu kısmına geçebiliriz */
+/* navbar kısmı */
+#navbar {
+    /* arka plan rengini ayarlar */
+    background: #333;
+    /* yazı rengini ayarlar */
+    color: #fff;
+    /* arka planın ne olursa olsun görünmesi için otomatik
+        taşma yapalım
+    */
+    overflow: auto;
+}
+
+#navbar a {
+    /* linklerdeki yazı renginii ayarlıyoruz */
+    color: #fff;
+}
+
+/* şimdi menü çubugundaki logoyu ve menü kısmını sola ve sağa yaslamamız gerekiyor
+    bunun içinde float kullanıcaz . not=normalde bu iş için flexbox özelliği kullanılır
+    fakat şuanda öğrenmediğimizden float kullanıyoruz.
+*/
+
+#navbar h1 {
+    /* sola yasladık logoyu hbt yazanı yani. */
+    float: left;
+    /* şimdide üstten aşağı iticez boşluk vericez */
+    padding-top: 20px;
+}
+
+#navbar ul{
+    /* sağa yasladık menüyü */
+    float: right;
+    /* liste başındaki yuvarlakları kaldıralım */
+    list-style: none;
+}
+
+/* menü dikey şekilde duruyor bunu yataya alalım */
+#navbar ul li{
+    /* soldan hizalan dedik ve yatay konuma geçti*/
+    float: left;
+
+}
+
+#navbar ul li a {
+    /* a etiketlerini block olarak görüntülemek istiyoruz çünkü margin ve paddin
+        verebilelim hizalamayı yapanilelim diye
+    */
+    display: block;
+    /* üstten sağdan aşağıdan soldan boşlukları ayarlayıp ortaladık */
+    padding: 20px;
+    /* metni hizalamak için  */
+    text-align: center;
+}
+
+/* menünün üzerine gelindiğindeki imleç hareketlerini ayarlıyoruz */
+#navbar ul li a:hover{
+    /* arka planı rengini verelim */
+    background: #444;
+    /* üzerine gelindiğinde metinin rengini bu yap dedik */
+    color: #f7c08a;
+}
+
+/* ana sayfada düzelttimiz a etiketi için şimdi burada verdiğimiz class ismini
+    yazarak ana sayfanın üzerinde sürekli duran turuncu işareti yapıcaz
+*/
+
+#navbar ul li a.current{
+    background: #444;
+    color: #f7c08a;
+}
+
+/* şimdi logonun sayfa genişlediğinde tam sayfa oldugunda sola yapışık duruyor
+    hafif ortalamak istiyoruz bunu ayarlayabilmek içinde html sayfasına gidip
+    navbarın içine yeni bir div açıp container adında ve bunun içine ul yi ve h1 başlıgını
+    eklemek istiyoruz.
+*/
+
+.container {
+    /* herşeyi ortaya itmesi için margin auto yapmalıyız */
+    margin: auto;
+    /* herşeyi ortaya itebilmesi için birde buna genişlik değeri verilmeli
+        max-width değeri kullanıcaz çünkü diğer cihazlardada görünmesi 
+        ve ileride responsive ayarlaması yaparken daha iyi olıucaktır
+    */
+    max-width: 1100px;
+    /* otomatik taşma ekliyoruz ki arka plan bunun dışına çıkmayacaktır */
+    overflow: auto;
+    /* dolgu verelim üstten ve alttan 0px sağve soldan 20px yapalım */
+    padding: 0px 20px;
+}
+
+.text-primary {
+    color: #f7c08a;
+}
+
+.lead {
+    font-size: 20px;
+}
+
+.btn {
+    display:inline-block;
+    font-size: 18px;
+    color: #fff;
+    background: #333;
+    padding: 13px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #f7c08a;
+    color: #333;
+}
+
+.btn-ligth {
+    background: #f4f4f4;
+    color: #333;
+}
+
+.bg-light {
+    background: #f4f4f4;
+    color: #333;
+}
+
+.bg-dark {
+    background: #333;
+    color: #fff;
+}
+
+.bg-primary {
+    background: #333;
+    color: #f7c08a;
+}
+
+.clr {
+    float: both;
+}
+
+.l-heading {
+    font-size: 40px;
+    line-height: 1.2;
+}
+
+/* padding */
+.py-1 {padding: 10px 0;}
+.py-2 {padding: 20px 0;}
+.py-3 {padding: 30px 0;}
+
+/* Showcase */
+
+#showcase {
+    background: url('../img/showcase.jpg') no-repeat center center/cover;
+    height: 600px;
+
+}
+
+#showcase .showcase-content {
+    color: #fff;
+    text-align: center;
+    padding-top: 170px;
+}
+
+#showcase .showcase-content h1 {
+    font-size: 60px;
+    line-height: 1.2em;
+}
+
+#showcase .showcase-content p {
+    padding-bottom: 20px;
+    line-height: 1.7em;
+}
+
+/* Home Info */
+
+#home-info {
+    height: 400px;
+}
+
+#home-info .info-img{
+    float:left;
+    width: 50%;
+    background: url('../img/photo-1.jpg') no-repeat;
+    min-height: 100%;
+}
+
+#home-info .info-content {
+    float: right;
+    width: 50%;
+    height: 100%;
+    text-align: center;
+    padding: 50px 30px;
+    overflow: hidden;
+}
+
+#home-info .info-content p {
+    padding-bottom: 30px;
+}
+
+/* Features */
+.box {
+    float: left;
+    width: 33.3%;
+    padding: 50px;
+    text-align: center;
+}
+
+.box i{
+    margin-bottom: 10px;
+}
+
+/* About info */
+#about-info .info-right {
+    float: right;
+    width: 50%;
+    min-height: 100%;
+}
+
+#about-info .info-right img {
+    display: block;
+    margin: auto;
+    width: 70%;
+    border-radius: 50%;
+}
+
+#about-info .info-left {
+    float: left;
+    width: 50%;
+    min-height: 100%;
+}
+
+/* Testimonials */
+#testimonials {
+    height: 100%;
+    background: url('../img/test-bg.jpg') no-repeat center center/cover;
+    padding-top: 100px;
+}
+
+#testimonials h2 {
+    color: #fff;
+    text-align: center;
+    padding-bottom: 40px;
+}
+
+#testimonials .testimonial {
+    padding: 20px;
+    margin-bottom: 40px;
+    border-radius: 5px;
+    background: #f7c08a;
+    color: #333;
+    opacity: 0.8;
+}
+
+#testimonials .testimonial img {
+    width: 100px;
+    float: left;
+    margin-right: 20px;
+    border-radius: 50%;
+}
+
+/* Contact Form */
+#contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+#contact-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#contact-form input, 
+#contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px #ddd solid;
+}
+
+#contact-form textarea {
+    height: 200px;
+}
+
+#contact-form input:focus, 
+#contact-form textarea:focus {
+    outline: none;
+    border-color: #f7c08a;
+}
+
+
+/* Footer */
+#main-footer {
+    text-align: center;
+    background: #444;
+    color: #fff;
+    padding: 20px;
+}
